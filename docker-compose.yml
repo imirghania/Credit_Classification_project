@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  frontend_ui:
+    build: frontend
+    ports:
+      - 8501:8501
+    volumes:
+      - './frontend:/streamlit_app:delegated'
+    depends_on:
+      - backend_api
+
+  backend_api:
+    build: backend
+    ports:
+      - 8000:8000
